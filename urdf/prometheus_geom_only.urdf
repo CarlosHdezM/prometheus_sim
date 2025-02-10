@@ -1,0 +1,176 @@
+<?xml version="1.0"?>
+<robot name="prometheus_basic">
+
+
+<!-- * * * Link Definitions * * * -->
+    <link name="world"/>
+
+    <link name="base_link">
+        <visual>
+        <origin rpy="0 0 0" xyz="0 0 0.4112"/>
+        <geometry>
+            <box size="0.268 0.268 0.8224"/>
+        </geometry>
+        </visual>
+    </link>
+
+    <link name="torso_yaw_link">
+        <visual>
+        <origin rpy="0 0 0" xyz="0 0 0.08085"/>
+        <geometry>
+            <cylinder radius="0.14" length="0.16174"/>
+        </geometry>
+        </visual>
+    </link>
+
+    <link name="torso_pitch_link">
+        <visual>
+        <origin rpy="0 0 0" xyz="0 0 0.1"/>
+        <geometry>
+            <box size="0.2 0.2 0.2"/>
+        </geometry>
+        </visual>
+    </link>
+
+    <link name="torso_ref_origin_link">
+        <visual>
+        <origin rpy="0 0 0" xyz="0 0 0"/>
+        <geometry>
+            <box size="0.005 0.005 0.005"/>
+        </geometry>
+        </visual>
+    </link>
+
+    <link name="right_DOF1_link">
+        <visual>
+        <origin rpy="0 0 0" xyz="0 0 0.033045"/>
+        <geometry>
+            <cylinder radius="0.049" length="0.06609"/>
+        </geometry>
+        </visual>
+    </link>   
+
+    <link name="right_DOF2_link">
+        <visual>
+        <origin rpy="0 0 0" xyz="0 0.05827567 0.033045"/>
+        <geometry>
+            <box size="0.049 0.049 0.06609"/>
+        </geometry>
+        </visual>
+    </link>
+
+    <link name="right_DOF3_link">
+        <visual>
+        <origin rpy="0 0 0" xyz="0 0 0.033045"/>
+        <geometry>
+            <cylinder radius="0.054" length="0.06609"/>
+        </geometry>
+        </visual>
+    </link>  
+
+    <link name="right_DOF4_link">
+        <visual>
+        <origin rpy="0 0 0" xyz="0 0 0.02"/>
+        <geometry>
+            <cylinder radius="0.03450" length="0.04"/>
+        </geometry>
+        </visual>
+    </link>
+
+    <link name="right_DOF5_link">
+        <visual>
+        <origin rpy="0 0 0" xyz="0 0 0.02"/>
+        <geometry>
+            <cylinder radius="0.03450" length="0.04"/>
+        </geometry>
+        </visual>
+    </link>
+
+    <link name="right_DOF6_link">
+        <visual>
+        <origin rpy="0 0 0" xyz="0 0 0.14"/>
+        <geometry>
+            <box size="0.087 0.036 0.28"/>
+        </geometry>
+        </visual>
+    </link>
+
+<!-- * * * Joint Definitions * * * -->
+
+    <joint name="fixed" type="fixed">
+        <parent link="world"/>
+        <child link="base_link"/>
+    </joint>
+
+    <joint name="torso_yaw_joint" type="revolute">
+        <parent link="base_link"/>
+        <child link="torso_yaw_link"/>
+        <origin xyz="0 0 0.8224" rpy="0 0 0"/>
+        <limit lower="-1.57079" upper="1.57079" effort="0.1" velocity="0.01"/>
+        <axis xyz="0 0 1"/>
+    </joint>
+
+    <joint name="torso_pitch_joint" type="revolute">
+        <parent link="torso_yaw_link"/>
+        <child link="torso_pitch_link"/>
+        <origin xyz="0 0 0.16174" rpy="0 0 0"/>
+        <limit lower="-0.174533" upper="0.610865" effort="0.1" velocity="0.01"/>
+        <axis xyz="0 1 0"/>
+    </joint>
+
+    <joint name="torso_ref_joint" type="fixed">
+        <parent link="torso_pitch_link"/>
+        <child link="torso_ref_origin_link"/>
+        <origin xyz="0 0 0.08100989" rpy="0 0 0"/>
+    </joint>
+
+    <joint name="right_DOF1_joint" type="revolute">
+        <parent link="torso_ref_origin_link"/>
+        <child link="right_DOF1_link"/>
+        <origin xyz="0 -0.10758116 0.05016592" rpy="1.13446 0 0"/>
+        <limit lower="-0.872664626" upper="3.14159" effort="0.1" velocity="0.01"/>
+        <axis xyz="0 0 1"/>
+    </joint>
+
+    <joint name="right_DOF2_joint" type="revolute">
+        <parent link="right_DOF1_link"/>
+        <child link="right_DOF2_link"/>
+        <origin xyz="0 0 0.06503000" rpy="2.00713 0 0"/>
+        <limit lower="-2.44346095" upper="0.174533" effort="0.1" velocity="0.01"/>
+        <axis xyz="1 0 0"/>
+    </joint>
+
+    <joint name="right_DOF3_joint" type="revolute">
+        <parent link="right_DOF2_link"/>
+        <child link="right_DOF3_link"/>
+        <origin xyz="0 0.05827567 0.10006000" rpy="0 0 0"/>
+        <limit lower="-1.91986218" upper="2.44346095" effort="0.1" velocity="0.01"/>
+        <axis xyz="0 0 1"/>
+    </joint>
+
+    <joint name="right_DOF4_joint" type="revolute">
+        <parent link="right_DOF3_link"/>
+        <child link="right_DOF4_link"/>
+        <origin xyz="-0.01852500 0 0.14434000" rpy="0 0 0"/>
+        <limit lower="-0.174533" upper="2.26893" effort="0.1" velocity="0.01"/>
+        <axis xyz="0 1 0"/>
+    </joint>
+
+    <joint name="right_DOF5_joint" type="revolute">
+        <parent link="right_DOF4_link"/>
+        <child link="right_DOF5_link"/>
+        <origin xyz="-0.01852620 0 0.07852620" rpy="0 0 0"/>
+        <limit lower="-2.26893" upper="2.26893" effort="0.1" velocity="0.01"/>
+        <axis xyz="0 0 1"/>
+    </joint>
+
+    <joint name="right_DOF6_joint" type="revolute">
+        <parent link="right_DOF5_link"/>
+        <child link="right_DOF6_link"/>
+        <origin xyz="0 0 0.04330000" rpy="0 0 0"/>
+        <limit lower="-1.22173048" upper="1.57079633" effort="0.1" velocity="0.01"/>
+        <axis xyz="1 0 0"/>
+    </joint>
+
+
+</robot>

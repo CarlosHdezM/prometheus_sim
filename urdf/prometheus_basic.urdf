@@ -1,0 +1,461 @@
+<?xml version="1.0"?>
+<robot name="prometheus_basic">
+
+
+<!-- * * * Enable Ros Control * * * -->
+    <gazebo>
+        <plugin name="gazebo_ros_control" filename="libgazebo_ros_control.so">
+            <robotNamespace>/prometheus_basic</robotNamespace>
+        </plugin>
+    </gazebo>
+
+
+<!-- * * * Link Definitions * * * -->
+    <link name="world"/>
+
+
+    <link name="base_link">
+        <inertial>
+            <origin xyz="0 0 0.41" rpy="0 0 0"/>
+            <mass value="40.0" />
+            <inertia ixx="2.91" ixy="0.0" ixz="0.0" iyy="2.91" iyz="0.0" izz="0.19"/>
+        </inertial>
+
+        <collision>
+            <origin rpy="0 0 0" xyz="0 0 0.4112"/>
+            <geometry>
+                <box size="0.15 0.15 0.8224"/>
+            </geometry>
+        </collision>
+
+        <visual>
+            <origin rpy="0 0 0" xyz="0 0 0.4112"/>
+            <geometry>
+                <box size="0.15 0.15 0.8224"/>
+            </geometry>
+        </visual>
+    </link>
+
+
+    <link name="torso_yaw_link">
+        <inertial>
+            <origin xyz="0.00096955 0.0 0.07318917" rpy="0 0 0"/>
+            <mass value="2.42957533" />
+            <inertia ixx="0.01652605" ixy="-0.00000042" ixz="0.00020566" iyy="0.00644035" iyz="0.0" izz="0.01397825"/>
+        </inertial>
+
+        <collision>
+            <origin rpy="0 0 0" xyz="0 0 0"/>
+            <geometry>
+                <mesh filename="package://prometheus_basic/meshes/low_poly/LINK_TORSO_YAW_LOW_POLY.dae"/>
+            </geometry>
+        </collision>
+
+        <visual>
+            <origin rpy="0 0 0" xyz="0 0 0"/>
+            <geometry>
+                <mesh filename="package://prometheus_basic/meshes/mid_poly/LINK_TORSO_YAW_MID_POLY.dae"/>
+            </geometry>
+        </visual>
+    </link>
+
+
+    <link name="torso_pitch_link">
+        <visual>
+            <origin rpy="0 0 0" xyz="0 0 0.001"/>
+            <geometry>
+                <box size="0.002 0.002 0.002"/>
+            </geometry>
+        </visual>
+    </link>
+
+
+    <link name="torso_ref_origin_link">
+        <inertial>
+            <origin xyz="-0.00981774 -0.00068720 0.02532159" rpy="0 0 0"/>
+            <mass value="3.62410616" />
+            <inertia ixx="0.03162012" ixy="-0.00001566" ixz="0.00102602" iyy="0.02171408" iyz="-0.00006840" izz="0.02657945"/>
+        </inertial>
+
+        <collision>
+            <origin rpy="0 0 0" xyz="0 0 0"/>
+            <geometry>
+                <mesh filename="package://prometheus_basic/meshes/low_poly/LINK_TORSO_REF_ORIGIN_LOW_POLY.dae"/>
+            </geometry>
+        </collision>
+
+        <visual>
+            <origin rpy="0 0 0" xyz="0 0 0"/>
+            <geometry>
+                <mesh filename="package://prometheus_basic/meshes/mid_poly/LINK_TORSO_REF_ORIGIN_MID_POLY.dae"/>
+            </geometry>
+        </visual>
+    </link>
+
+
+    <link name="right_DOF1_link">
+        <inertial>
+            <origin xyz="-0.00213790 -0.00000438 0.06178607" rpy="0 0 0"/>
+            <mass value="0.8268" />
+            <inertia ixx="0.00127039" ixy="-0.00000003" ixz="-0.00001041" iyy="0.00089802" iyz="0.00000001" izz="0.00085070"/>
+        </inertial>
+
+        <collision>
+            <origin rpy="0 0 0" xyz="0 0 0"/>
+            <geometry>
+                <mesh filename="package://prometheus_basic/meshes/low_poly/LINK_DOF1_RIGHT_ARM_LOW_POLY.dae"/>
+            </geometry>
+        </collision>
+
+        <visual>
+            <origin rpy="0 0 0" xyz="0 0 0"/>
+            <geometry>
+                <mesh filename="package://prometheus_basic/meshes/mid_poly/LINK_DOF1_RIGHT_ARM_MID_POLY.dae"/>
+            </geometry>
+        </visual>
+    </link>   
+
+
+    <link name="right_DOF2_link">
+        <inertial>
+            <origin xyz="0.00151728 0.05325369 0.06113672" rpy="0 0 0"/>
+            <mass value="0.99291414" />
+            <inertia ixx="0.00202305" ixy="-0.00002757" ixz="-0.00005487" iyy="0.00208730" iyz="0.00026328" izz="0.00144375"/>
+        </inertial>
+
+        <collision>
+            <origin rpy="0 0 0" xyz="0 0 0"/>
+            <geometry>
+                <mesh filename="package://prometheus_basic/meshes/low_poly/LINK_DOF2_RIGHT_ARM_LOW_POLY.dae"/>
+            </geometry>
+        </collision>
+
+        <visual>
+            <origin rpy="0 0 0" xyz="0 0 0"/>
+            <geometry>
+                <mesh filename="package://prometheus_basic/meshes/mid_poly/LINK_DOF2_RIGHT_ARM_MID_POLY.dae"/>
+            </geometry>
+        </visual>
+    </link>
+
+
+    <link name="right_DOF3_link">
+        <inertial>
+            <origin xyz="-0.02040463 0.00360006 0.07121443" rpy="0 0 0"/>
+            <mass value="1.12563260" />
+            <inertia ixx="0.00280451" ixy="0.00003260" ixz="-0.00035912" iyy="0.00256372" iyz="-0.00008943" izz="0.00154456"/>
+        </inertial>
+
+        <collision>
+            <origin rpy="0 0 0" xyz="0 0 0"/>
+            <geometry>
+                <mesh filename="package://prometheus_basic/meshes/low_poly/LINK_DOF3_RIGHT_ARM_LOW_POLY.dae"/>
+            </geometry>
+        </collision>
+
+        <visual>
+            <origin rpy="0 0 0" xyz="0 0 0"/>
+            <geometry>
+                <mesh filename="package://prometheus_basic/meshes/mid_poly/LINK_DOF3_RIGHT_ARM_MID_POLY.dae"/>
+            </geometry>
+        </visual>
+    </link>
+
+
+    <link name="right_DOF4_link">
+        <inertial>
+            <origin xyz="-0.01695323 0.00036641 0.05006552" rpy="0 0 0"/>
+            <mass value="0.62675166" />
+            <inertia ixx="0.00060208" ixy="0.00000398" ixz="-0.00005414" iyy="0.00061949" iyz="-0.00001208" izz="0.00048416"/>
+        </inertial>
+
+        <collision>
+            <origin rpy="0 0 0" xyz="0 0 0"/>
+            <geometry>
+                <mesh filename="package://prometheus_basic/meshes/low_poly/LINK_DOF4_RIGHT_ARM_LOW_POLY.dae"/>
+            </geometry>
+        </collision>
+
+        <visual>
+            <origin rpy="0 0 0" xyz="0 0 0"/>
+            <geometry>
+                <mesh filename="package://prometheus_basic/meshes/mid_poly/LINK_DOF4_RIGHT_ARM_MID_POLY.dae"/>
+            </geometry>
+        </visual>
+    </link>
+
+
+    <link name="right_DOF5_link">
+        <inertial>
+            <origin xyz="-0.00085709 0.00000800 0.04117317" rpy="0 0 0"/>
+            <mass value="0.60326285" />
+            <inertia ixx="0.00050902" ixy="-0.00000007" ixz="0.00001661" iyy="0.00045730" iyz="-0.00000005" izz="0.00044181"/>
+        </inertial>
+
+        <collision>
+            <origin rpy="0 0 0" xyz="0 0 0"/>
+            <geometry>
+                <mesh filename="package://prometheus_basic/meshes/low_poly/LINK_DOF5_RIGHT_ARM_LOW_POLY.dae"/>
+            </geometry>
+        </collision>
+
+        <visual>
+            <origin rpy="0 0 0" xyz="0 0 0"/>
+            <geometry>
+                <mesh filename="package://prometheus_basic/meshes/mid_poly/LINK_DOF5_RIGHT_ARM_MID_POLY.dae"/>
+            </geometry>
+        </visual>
+    </link>
+
+
+    <link name="right_DOF6_link">
+        <inertial>
+            <origin xyz="0.00101378 -0.01039349 0.13093043" rpy="0 0 0"/>
+            <mass value="0.59540966" />
+            <inertia ixx="0.00285121" ixy="-0.00012323" ixz="0.00005430" iyy="0.00287587" iyz="-0.00045441" izz="0.00079492"/>
+        </inertial>
+
+        <collision>
+            <origin rpy="0 0 0" xyz="0 0 0"/>
+            <geometry>
+                <mesh filename="package://prometheus_basic/meshes/low_poly/LINK_DOF6_WITH_HAND_RIGHT_ARM_LOW_POLY.dae"/>
+            </geometry>
+        </collision>
+
+        <visual>
+            <origin rpy="0 0 0" xyz="0 0 0"/>
+            <geometry>
+                <mesh filename="package://prometheus_basic/meshes/mid_poly/LINK_DOF6_WITH_HAND_RIGHT_ARM_MID_POLY.dae"/>
+            </geometry>
+        </visual>
+    </link>
+
+
+    <link name="fixed_head_link">
+        <inertial>
+            <origin xyz="0.00258294 0.00324202 0.10829708" rpy="0 0 0"/>
+            <mass value="1.65710494" />
+            <inertia ixx="0.01000159" ixy="0.00000721" ixz="0.00038472" iyy="0.00885567" iyz="0.00015854" izz="0.00280493"/>
+        </inertial>
+
+        <collision>
+            <origin rpy="0 0 0" xyz="0 0 0"/>
+            <geometry>
+                <mesh filename="package://prometheus_basic/meshes/low_poly/FIXED_HEAD_LINK_LOW_POLY.dae"/>
+            </geometry>
+        </collision>
+        
+        <visual>
+            <origin rpy="0 0 0" xyz="0 0 0"/>
+            <geometry>
+                <mesh filename="package://prometheus_basic/meshes/mid_poly/FIXED_HEAD_LINK_MID_POLY.dae"/>
+            </geometry>
+        </visual>
+    </link>
+
+
+    <link name="fixed_left_arm_link">
+        <inertial>
+            <origin xyz="0.04328849 0.17747975 0.03404145" rpy="0 0 0"/>
+            <mass value="4.95244949" />
+            <inertia ixx="0.08076763" ixy="0.03010671" ixz="-0.01270765" iyy="0.04730563" iyz="-0.02112242" izz="0.10541212"/>
+        </inertial>
+
+        <collision>
+            <origin rpy="0 0 0" xyz="0 0 0"/>
+            <geometry>
+                <mesh filename="package://prometheus_basic/meshes/low_poly/FIXED_LEFT_ARM_LINK_LOW_POLY.dae"/>
+            </geometry>
+        </collision>
+
+        <visual>
+            <origin rpy="0 0 0" xyz="0 0 0"/>
+            <geometry>
+                <mesh filename="package://prometheus_basic/meshes/mid_poly/FIXED_LEFT_ARM_LINK_MID_POLY.dae"/>
+            </geometry>
+        </visual>
+    </link>   
+
+
+<!-- * * * Joint Definitions * * * -->
+
+    <joint name="fixed" type="fixed">
+        <parent link="world"/>
+        <child link="base_link"/>
+    </joint>
+
+
+    <joint name="torso_yaw_joint" type="revolute">
+        <parent link="base_link"/>
+        <child link="torso_yaw_link"/>
+        <origin xyz="0 0 0.8224" rpy="0 0 0"/>
+        <limit lower="-1.57079" upper="1.57079" effort="13" velocity="1.15"/>
+        <axis xyz="0 0 1"/>
+    </joint>
+    <transmission name="tran_torso_1">
+        <type>transmission_interface/SimpleTransmission</type>
+        <joint name="torso_yaw_joint">
+            <hardwareInterface>EffortJointInterface</hardwareInterface>
+        </joint>
+        <actuator name="motor_torso_1">
+            <hardwareInterface>EffortJointInterface</hardwareInterface>
+            <mechanicalReduction>1</mechanicalReduction>
+        </actuator>
+    </transmission>    
+
+
+    <joint name="torso_pitch_joint" type="revolute">
+        <parent link="torso_yaw_link"/>
+        <child link="torso_pitch_link"/>
+        <origin xyz="0 0 0.16174" rpy="0 0 0"/>
+        <limit lower="-0.174533" upper="0.610865" effort="104" velocity="1.15"/>
+        <axis xyz="0 1 0"/>
+    </joint>
+    <transmission name="tran_torso_2">
+        <type>transmission_interface/SimpleTransmission</type>
+        <joint name="torso_pitch_joint">
+            <hardwareInterface>EffortJointInterface</hardwareInterface>
+        </joint>
+        <actuator name="motor_torso_2">
+            <hardwareInterface>EffortJointInterface</hardwareInterface>
+            <mechanicalReduction>1</mechanicalReduction>
+        </actuator>
+    </transmission> 
+
+
+    <joint name="torso_ref_joint" type="fixed">
+        <parent link="torso_pitch_link"/>
+        <child link="torso_ref_origin_link"/>
+        <origin xyz="0 0 0.08100989" rpy="0 0 0"/>
+    </joint>
+
+
+    <joint name="right_DOF1_joint" type="revolute">
+        <parent link="torso_ref_origin_link"/>
+        <child link="right_DOF1_link"/>
+        <origin xyz="0 -0.10758116 0.05016592" rpy="1.13446 0 0"/>
+        <limit lower="-0.872664626" upper="3.14159" effort="13" velocity="1.15"/>
+        <axis xyz="0 0 1"/>
+    </joint>
+    <transmission name="tran_right_DOF1">
+        <type>transmission_interface/SimpleTransmission</type>
+        <joint name="right_DOF1_joint">
+            <hardwareInterface>EffortJointInterface</hardwareInterface>
+        </joint>
+        <actuator name="motor_right_DOF1">
+            <hardwareInterface>EffortJointInterface</hardwareInterface>
+            <mechanicalReduction>1</mechanicalReduction>
+        </actuator>
+    </transmission>
+
+
+    <joint name="right_DOF2_joint" type="revolute">
+        <parent link="right_DOF1_link"/>
+        <child link="right_DOF2_link"/>
+        <origin xyz="0 0 0.06503000" rpy="2.00713 0 0"/>
+        <limit lower="-2.44346095" upper="0.174533" effort="13" velocity="1.15"/>
+        <axis xyz="1 0 0"/>
+    </joint>
+    <transmission name="tran_right_DOF2">
+        <type>transmission_interface/SimpleTransmission</type>
+        <joint name="right_DOF2_joint">
+            <hardwareInterface>EffortJointInterface</hardwareInterface>
+        </joint>
+        <actuator name="motor_right_DOF2">
+            <hardwareInterface>EffortJointInterface</hardwareInterface>
+            <mechanicalReduction>1</mechanicalReduction>
+        </actuator>
+    </transmission>
+
+
+    <joint name="right_DOF3_joint" type="revolute">
+        <parent link="right_DOF2_link"/>
+        <child link="right_DOF3_link"/>
+        <origin xyz="0 0.05827567 0.10006000" rpy="0 0 0"/>
+        <limit lower="-1.91986218" upper="2.44346095" effort="9" velocity="1.15"/>
+        <axis xyz="0 0 1"/>
+    </joint>
+    <transmission name="tran_right_DOF3">
+        <type>transmission_interface/SimpleTransmission</type>
+        <joint name="right_DOF3_joint">
+            <hardwareInterface>EffortJointInterface</hardwareInterface>
+        </joint>
+        <actuator name="motor_right_DOF3">
+            <hardwareInterface>EffortJointInterface</hardwareInterface>
+            <mechanicalReduction>1</mechanicalReduction>
+        </actuator>
+    </transmission>
+
+
+    <joint name="right_DOF4_joint" type="revolute">
+        <parent link="right_DOF3_link"/>
+        <child link="right_DOF4_link"/>
+        <origin xyz="-0.01852500 0 0.14434000" rpy="0 0 0"/>
+        <limit lower="-0.174533" upper="2.26893" effort="4.8" velocity="1.15"/>
+        <axis xyz="0 1 0"/>
+    </joint>
+    <transmission name="tran_right_DOF4">
+        <type>transmission_interface/SimpleTransmission</type>
+        <joint name="right_DOF4_joint">
+            <hardwareInterface>EffortJointInterface</hardwareInterface>
+        </joint>
+        <actuator name="motor_right_DOF4">
+            <hardwareInterface>EffortJointInterface</hardwareInterface>
+            <mechanicalReduction>1</mechanicalReduction>
+        </actuator>
+    </transmission>
+
+
+    <joint name="right_DOF5_joint" type="revolute">
+        <parent link="right_DOF4_link"/>
+        <child link="right_DOF5_link"/>
+        <origin xyz="-0.01852620 0 0.07852620" rpy="0 0 0"/>
+        <limit lower="-2.26893" upper="2.26893" effort="1.6" velocity="1.15"/>
+        <axis xyz="0 0 1"/>
+    </joint>
+    <transmission name="tran_right_DOF5">
+        <type>transmission_interface/SimpleTransmission</type>
+        <joint name="right_DOF5_joint">
+            <hardwareInterface>EffortJointInterface</hardwareInterface>
+        </joint>
+        <actuator name="motor_right_DOF5">
+            <hardwareInterface>EffortJointInterface</hardwareInterface>
+            <mechanicalReduction>1</mechanicalReduction>
+        </actuator>
+    </transmission>
+
+
+    <joint name="right_DOF6_joint" type="revolute">
+        <parent link="right_DOF5_link"/>
+        <child link="right_DOF6_link"/>
+        <origin xyz="0 0 0.04330000" rpy="0 0 0"/>
+        <limit lower="-1.22173048" upper="1.57079633" effort="1.6" velocity="1.15"/>
+        <axis xyz="1 0 0"/>
+    </joint>
+    <transmission name="tran_right_DOF6">
+        <type>transmission_interface/SimpleTransmission</type>
+        <joint name="right_DOF6_joint">
+            <hardwareInterface>EffortJointInterface</hardwareInterface>
+        </joint>
+        <actuator name="motor_right_DOF6">
+            <hardwareInterface>EffortJointInterface</hardwareInterface>
+            <mechanicalReduction>1</mechanicalReduction>
+        </actuator>
+    </transmission>
+
+
+    <joint name="fixed_head_joint" type="fixed">
+        <parent link="torso_ref_origin_link"/>
+        <child link="fixed_head_link"/>
+        <origin xyz="0 0 0.11247873" rpy="0 0 0"/>
+    </joint>
+
+
+    <joint name="fixed_left_arm_joint" type="fixed">
+        <parent link="torso_ref_origin_link"/>
+        <child link="fixed_left_arm_link"/>
+        <origin xyz="0 0.10758116 0.05016592" rpy="-1.13446 0 0"/>
+    </joint>
+
+
+</robot>
