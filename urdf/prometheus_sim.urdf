@@ -1,11 +1,11 @@
 <?xml version="1.0"?>
-<robot name="prometheus_basic">
+<robot name="prometheus_sim">
 
 
 <!-- * * * Enable Ros Control * * * -->
     <gazebo>
         <plugin name="gazebo_ros_control" filename="libgazebo_ros_control.so">
-            <robotNamespace>/prometheus_basic</robotNamespace>
+            <robotNamespace>/prometheus_sim</robotNamespace>
         </plugin>
     </gazebo>
 
@@ -47,14 +47,14 @@
         <collision>
             <origin rpy="0 0 0" xyz="0 0 0"/>
             <geometry>
-                <mesh filename="package://prometheus_basic/meshes/low_poly/LINK_TORSO_YAW_LOW_POLY.dae"/>
+                <mesh filename="package://prometheus_sim/meshes/low_poly/LINK_TORSO_YAW_LOW_POLY.dae"/>
             </geometry>
         </collision>
 
         <visual>
             <origin rpy="0 0 0" xyz="0 0 0"/>
             <geometry>
-                <mesh filename="package://prometheus_basic/meshes/mid_poly/LINK_TORSO_YAW_MID_POLY.dae"/>
+                <mesh filename="package://prometheus_sim/meshes/mid_poly/LINK_TORSO_YAW_MID_POLY.dae"/>
             </geometry>
         </visual>
     </link>
@@ -80,14 +80,14 @@
         <collision>
             <origin rpy="0 0 0" xyz="0 0 0"/>
             <geometry>
-                <mesh filename="package://prometheus_basic/meshes/low_poly/LINK_TORSO_REF_ORIGIN_LOW_POLY.dae"/>
+                <mesh filename="package://prometheus_sim/meshes/low_poly/LINK_TORSO_REF_ORIGIN_LOW_POLY.dae"/>
             </geometry>
         </collision>
 
         <visual>
             <origin rpy="0 0 0" xyz="0 0 0"/>
             <geometry>
-                <mesh filename="package://prometheus_basic/meshes/mid_poly/LINK_TORSO_REF_ORIGIN_MID_POLY.dae"/>
+                <mesh filename="package://prometheus_sim/meshes/mid_poly/LINK_TORSO_REF_ORIGIN_MID_POLY.dae"/>
             </geometry>
         </visual>
     </link>
@@ -103,14 +103,14 @@
         <collision>
             <origin rpy="0 0 0" xyz="0 0 0"/>
             <geometry>
-                <mesh filename="package://prometheus_basic/meshes/low_poly/LINK_DOF1_RIGHT_ARM_LOW_POLY.dae"/>
+                <mesh filename="package://prometheus_sim/meshes/low_poly/LINK_DOF1_RIGHT_ARM_LOW_POLY.dae"/>
             </geometry>
         </collision>
 
         <visual>
             <origin rpy="0 0 0" xyz="0 0 0"/>
             <geometry>
-                <mesh filename="package://prometheus_basic/meshes/mid_poly/LINK_DOF1_RIGHT_ARM_MID_POLY.dae"/>
+                <mesh filename="package://prometheus_sim/meshes/mid_poly/LINK_DOF1_RIGHT_ARM_MID_POLY.dae"/>
             </geometry>
         </visual>
     </link>   
@@ -126,14 +126,14 @@
         <collision>
             <origin rpy="0 0 0" xyz="0 0 0"/>
             <geometry>
-                <mesh filename="package://prometheus_basic/meshes/low_poly/LINK_DOF2_RIGHT_ARM_LOW_POLY.dae"/>
+                <mesh filename="package://prometheus_sim/meshes/low_poly/LINK_DOF2_RIGHT_ARM_LOW_POLY.dae"/>
             </geometry>
         </collision>
 
         <visual>
             <origin rpy="0 0 0" xyz="0 0 0"/>
             <geometry>
-                <mesh filename="package://prometheus_basic/meshes/mid_poly/LINK_DOF2_RIGHT_ARM_MID_POLY.dae"/>
+                <mesh filename="package://prometheus_sim/meshes/mid_poly/LINK_DOF2_RIGHT_ARM_MID_POLY.dae"/>
             </geometry>
         </visual>
     </link>
@@ -149,14 +149,14 @@
         <collision>
             <origin rpy="0 0 0" xyz="0 0 0"/>
             <geometry>
-                <mesh filename="package://prometheus_basic/meshes/low_poly/LINK_DOF3_RIGHT_ARM_LOW_POLY.dae"/>
+                <mesh filename="package://prometheus_sim/meshes/low_poly/LINK_DOF3_RIGHT_ARM_LOW_POLY.dae"/>
             </geometry>
         </collision>
 
         <visual>
             <origin rpy="0 0 0" xyz="0 0 0"/>
             <geometry>
-                <mesh filename="package://prometheus_basic/meshes/mid_poly/LINK_DOF3_RIGHT_ARM_MID_POLY.dae"/>
+                <mesh filename="package://prometheus_sim/meshes/mid_poly/LINK_DOF3_RIGHT_ARM_MID_POLY.dae"/>
             </geometry>
         </visual>
     </link>
@@ -172,14 +172,14 @@
         <collision>
             <origin rpy="0 0 0" xyz="0 0 0"/>
             <geometry>
-                <mesh filename="package://prometheus_basic/meshes/low_poly/LINK_DOF4_RIGHT_ARM_LOW_POLY.dae"/>
+                <mesh filename="package://prometheus_sim/meshes/low_poly/LINK_DOF4_RIGHT_ARM_LOW_POLY.dae"/>
             </geometry>
         </collision>
 
         <visual>
             <origin rpy="0 0 0" xyz="0 0 0"/>
             <geometry>
-                <mesh filename="package://prometheus_basic/meshes/mid_poly/LINK_DOF4_RIGHT_ARM_MID_POLY.dae"/>
+                <mesh filename="package://prometheus_sim/meshes/mid_poly/LINK_DOF4_RIGHT_ARM_MID_POLY.dae"/>
             </geometry>
         </visual>
     </link>
@@ -195,14 +195,14 @@
         <collision>
             <origin rpy="0 0 0" xyz="0 0 0"/>
             <geometry>
-                <mesh filename="package://prometheus_basic/meshes/low_poly/LINK_DOF5_RIGHT_ARM_LOW_POLY.dae"/>
+                <mesh filename="package://prometheus_sim/meshes/low_poly/LINK_DOF5_RIGHT_ARM_LOW_POLY.dae"/>
             </geometry>
         </collision>
 
         <visual>
             <origin rpy="0 0 0" xyz="0 0 0"/>
             <geometry>
-                <mesh filename="package://prometheus_basic/meshes/mid_poly/LINK_DOF5_RIGHT_ARM_MID_POLY.dae"/>
+                <mesh filename="package://prometheus_sim/meshes/mid_poly/LINK_DOF5_RIGHT_ARM_MID_POLY.dae"/>
             </geometry>
         </visual>
     </link>
@@ -218,14 +218,14 @@
         <collision>
             <origin rpy="0 0 0" xyz="0 0 0"/>
             <geometry>
-                <mesh filename="package://prometheus_basic/meshes/low_poly/LINK_DOF6_WITH_HAND_RIGHT_ARM_LOW_POLY.dae"/>
+                <mesh filename="package://prometheus_sim/meshes/low_poly/LINK_DOF6_WITH_HAND_RIGHT_ARM_LOW_POLY.dae"/>
             </geometry>
         </collision>
 
         <visual>
             <origin rpy="0 0 0" xyz="0 0 0"/>
             <geometry>
-                <mesh filename="package://prometheus_basic/meshes/mid_poly/LINK_DOF6_WITH_HAND_RIGHT_ARM_MID_POLY.dae"/>
+                <mesh filename="package://prometheus_sim/meshes/mid_poly/LINK_DOF6_WITH_HAND_RIGHT_ARM_MID_POLY.dae"/>
             </geometry>
         </visual>
     </link>
@@ -241,14 +241,14 @@
         <collision>
             <origin rpy="0 0 0" xyz="0 0 0"/>
             <geometry>
-                <mesh filename="package://prometheus_basic/meshes/low_poly/FIXED_HEAD_LINK_LOW_POLY.dae"/>
+                <mesh filename="package://prometheus_sim/meshes/low_poly/FIXED_HEAD_LINK_LOW_POLY.dae"/>
             </geometry>
         </collision>
         
         <visual>
             <origin rpy="0 0 0" xyz="0 0 0"/>
             <geometry>
-                <mesh filename="package://prometheus_basic/meshes/mid_poly/FIXED_HEAD_LINK_MID_POLY.dae"/>
+                <mesh filename="package://prometheus_sim/meshes/mid_poly/FIXED_HEAD_LINK_MID_POLY.dae"/>
             </geometry>
         </visual>
     </link>
@@ -264,14 +264,14 @@
         <collision>
             <origin rpy="0 0 0" xyz="0 0 0"/>
             <geometry>
-                <mesh filename="package://prometheus_basic/meshes/low_poly/FIXED_LEFT_ARM_LINK_LOW_POLY.dae"/>
+                <mesh filename="package://prometheus_sim/meshes/low_poly/FIXED_LEFT_ARM_LINK_LOW_POLY.dae"/>
             </geometry>
         </collision>
 
         <visual>
             <origin rpy="0 0 0" xyz="0 0 0"/>
             <geometry>
-                <mesh filename="package://prometheus_basic/meshes/mid_poly/FIXED_LEFT_ARM_LINK_MID_POLY.dae"/>
+                <mesh filename="package://prometheus_sim/meshes/mid_poly/FIXED_LEFT_ARM_LINK_MID_POLY.dae"/>
             </geometry>
         </visual>
     </link>   
