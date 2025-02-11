@@ -10,6 +10,8 @@ Prometheus Robot (V1.0) Simulation (ROS 1)
 ## Prometheus is a real robot
 Prometheus was developed as an avatar robot for a telepresence system and is the first full-scale humanoid robot created in Mexico. It ranked 7th out of 99 contestants in the ANA Avatar XPRIZE competition.
 
+![Carlos_Prometheus_Gif](https://github.com/user-attachments/assets/0e245cd5-2e44-4824-ab3b-f7aea6fa5331)
+
 
 ## Dependencies
 * System Requirements:
